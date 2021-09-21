@@ -1,5 +1,6 @@
 package com.example;
 
+import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Put;
 
@@ -7,7 +8,7 @@ import io.micronaut.http.annotation.Put;
 public class TestController {
 
     @Put
-    public void createProject(TestCommand testCommand) {
+    public void test(@Body TestCommand testCommand) {
         System.out.println("testCommand.name() "+testCommand.name());
         if(testCommand.ids().isEmpty()) {
             throw new IllegalArgumentException("Test failed");
